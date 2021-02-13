@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { AppDispatch } from "../../store";
+import { AppDispatch, AppThunk } from "../../store";
 
 interface CounterState {
 	value: number;
@@ -29,7 +29,11 @@ export const counterReducer = counterSlice.reducer;
 
 export const { increment, decrement, incrementByAmount } = counterSlice.actions;
 
-export const incrementAsync = (amount: number) => async (
+// The function below is called a thunk and allows us to perform async logic. It
+// can be dispatched like a regular action: `dispatch(incrementAsync(10))`. This
+// will call the thunk with the `dispatch` function as the first argument. Async
+// code can then be executed and other actions can be dispatched
+export const incrementAsync = (amount: number): AppThunk => (
 	dispatch: AppDispatch
 ) => {
 	setTimeout(() => {
