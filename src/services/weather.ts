@@ -33,7 +33,7 @@ export async function getWeather(location: string): Promise<IWeatherModel> {
 		name: 'Monterrey'
 	};*/
 	const res = await weatherAPI.get(
-		`/weather?q=${location}&units=imperial&APPID=${process.env.REACT_APP_WEATHER_API_KEY}`
+		`/weather?q=${location}&units=metric&APPID=${process.env.REACT_APP_WEATHER_API_KEY}`
 	);
 	return res.data;
 }

@@ -108,7 +108,7 @@ function App() {
 																type="text"
 																value={
 																	weather?.main
-																		? `${weather.main.temp} °F`
+																		? `${weather.main.temp} °C`
 																		: 'W/I'
 																}
 															/>
@@ -124,7 +124,7 @@ function App() {
 																type="text"
 																value={
 																	weather?.main
-																		? `${weather.main.feels_like} °F`
+																		? `${weather.main.feels_like} °C`
 																		: 'W/I'
 																}
 															/>
@@ -140,7 +140,7 @@ function App() {
 																type="text"
 																value={
 																	weather?.main
-																		? `${weather.main.temp_min} °F`
+																		? `${weather.main.temp_min} °C`
 																		: 'W/I'
 																}
 															/>
@@ -156,7 +156,7 @@ function App() {
 																type="text"
 																value={
 																	weather?.main
-																		? `${weather.main.temp_max} °F`
+																		? `${weather.main.temp_max} °C`
 																		: 'W/I'
 																}
 															/>
