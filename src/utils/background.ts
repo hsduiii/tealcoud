@@ -14,9 +14,9 @@ const getBackground = (type: string): string => {
 			return clouds;
 		case 'haze':
 			return haze;
-		case 'rainy':
+		case 'rain':
 			return rain;
-		case 'snowy':
+		case 'snow':
 			return snow;
 		case 'mist':
 			return mist;
