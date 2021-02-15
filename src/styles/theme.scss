@@ -35,4 +35,9 @@ input:focus {
 	box-shadow: none !important;
 }
 
+.input-group-text {
+    background-color: transparent !important;
+    border: none !important
+}
+
 @import '~bootstrap/scss/bootstrap';
