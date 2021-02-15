@@ -33,3 +33,13 @@ html, body, .App {
     color: $secondary !important;
   }
 }
+
+.day {
+  color: $secondary;
+  font-size: 1.8rem;
+}
+
+.month-year {
+  color: $secondary;
+  font-size: 1.2rem;
+}

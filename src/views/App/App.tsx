@@ -6,6 +6,7 @@ import { RootState } from '../../store/store';
 import { searchWeatherAction } from '../../store/reducers/features/weather';
 import { useForm } from 'react-hook-form';
 import getBackground from '../../utils/background';
+import moment from 'moment';
 
 interface IFormData {
 	location: string;
@@ -79,6 +80,10 @@ function App() {
 												: ''
 										)}
 									/>
+									<Card.ImgOverlay className="text-right">
+										<Card.Title className="day">{moment().format("dddd DD")}</Card.Title>
+										<Card.Subtitle className="month-year">{moment().format("MMMM-YYYY")}</Card.Subtitle>
+									</Card.ImgOverlay>
 									<Card.Body>
 										<Row>
 											<Col xs={12}>
