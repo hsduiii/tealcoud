@@ -1,8 +1,8 @@
 import { combineReducers } from "@reduxjs/toolkit";
-import { counterReducer } from "./counter";
+import { weatherReducer } from "./weather";
 
 const appReducer = combineReducers({
-	counter: counterReducer,
+	weather: weatherReducer,
 });
 
 export default appReducer;

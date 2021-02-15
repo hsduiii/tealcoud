@@ -1,10 +1,8 @@
 @import './theme.scss';
-@import 'bootstrap/dist/css/bootstrap.min.css';
 
 @font-face {
   font-family: 'tealfont';
   src: url('../assets/fonts/Quicksand-Medium.ttf');
-  border-radius: 10px;
 }
 
 
@@ -12,18 +10,23 @@ html, body, .App {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  height: 100vh;
-  color: $primary;
-  font-size: 1.8rem;
-  font-weight: 400;
+  color: $secondary;
+  font-size: 1.2rem;
+  font-weight: 200;
   font-family: 'tealfont' !important;
 }
 
+.title {
+  color: $primary !important;
+  font-size: 2.4rem !important;
+  font-weight: 400 !important;
+}
+
 .footer {
-  position: absolute;
-  bottom: 0;
+  position: relative;
+  bottom: 0px;
   height: 65px;
-  font-size: .6rem;
+  font-size: 1rem;
   text-decoration: none !important;
   a {
     text-decoration: none !important;

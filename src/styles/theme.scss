@@ -1,8 +1,38 @@
+* {
+    letter-spacing: .1rem;
+}
+
 $theme-colors: (
-    "primary": #108775,
-    "secondary": #35495e
+	'primary': #108775,
+	'secondary': #35495e
 );
 
 $primary: #108775;
 $secondary: #35495e;
 $line: #cccccc;
+
+input {
+	border: 0 !important;
+	border-bottom: 0.05rem solid $primary !important;
+	border-radius: 2px !important;
+    -webkit-transition: font-size 0.5s ease;
+	-moz-transition: font-size 0.5s ease;
+	-o-transition: font-size 0.5s ease;
+	transition: font-size 0.5s ease;
+    -webkit-transition: letter-spacing 0.5s ease;
+	-moz-transition: letter-spacing 0.5s ease;
+	-o-transition: letter-spacing 0.5s ease;
+	transition: letter-spacing 0.5s ease;
+}
+
+input:focus {
+	box-shadow: none !important;
+    font-size: 1rem;
+    letter-spacing: 0rem;
+}
+
+.btn:focus {
+	box-shadow: none !important;
+}
+
+@import '~bootstrap/scss/bootstrap';
