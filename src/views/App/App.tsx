@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store/store';
 import { searchWeatherAction } from '../../store/reducers/features/weather';
 import { useForm } from 'react-hook-form';
-import sunny from '../../assets/images/sunny.png';
+import getBackground from '../../utils/background';
 
 interface IFormData {
 	location: string;
@@ -31,8 +31,8 @@ function App() {
 				fluid
 				className="d-flex flex-column justify-content-center align-items-center mt-4"
 			>
-				<Row className="w-100 justify-content-start">
-					<Col xs={12} lg={3}>
+				<Row className="w-100 justify-content-center">
+					<Col xs={12} xl={3}>
 						<Row>
 							<Col xs={12} className="text-start title">
 								TEALCLOUD
@@ -67,28 +67,133 @@ function App() {
 							</Col>
 						</Row>
 					</Col>
-					<Col xs={12} lg={9} className="mt-3">
-						<Row className="justify-content-start align-items-center">
-							<Col xs={12} lg={6}>
+					<Col xs={12} xl={7} className="mt-4 mt-xl-2">
+						<Row className="justify-content-center align-items-center">
+							<Col xs={12} xl={10}>
 								<Card text="secondary">
-									<Card.Img variant="top" src={sunny} />
+									<Card.Img
+										variant="top"
+										src={getBackground(
+											weather?.weather
+												? weather.weather[0].main.toLowerCase()
+												: ''
+										)}
+									/>
 									<Card.Body>
-										<Card.Title>{weather?.name ? `${weather.name}, ${weather.sys?.country}` : 'W/I'}</Card.Title>
-										<Card.Subtitle>
-											{(weather?.weather) ? weather.weather[0].main : 'W/I'}
-										</Card.Subtitle>
-									</Card.Body>
-								</Card>
-							</Col>
-							<Col xs={6}>
-								<Card text="secondary">
-									<Card.Body>
-										<Card.Title>Card Title</Card.Title>
-										<Card.Text>
-											Some quick example text to build on the card title and
-											make up the bulk of the card's content.
-										</Card.Text>
-										<Button variant="primary">Go somewhere</Button>
+										<Row>
+											<Col xs={12}>
+												<Card.Title>
+													{weather?.name
+														? `${weather.name}, ${weather.sys?.country}`
+														: 'W/I'}
+												</Card.Title>
+												<Card.Subtitle>
+													{weather?.weather ? weather.weather[0].main : 'W/I'}
+												</Card.Subtitle>
+											</Col>
+											<Col className="mt-2">
+												<Form.Row className="text-start">
+													<Col xs={6} xl={4}>
+														<Form.Group>
+															<Form.Label>Temp</Form.Label>
+															<Form.Control
+																plaintext
+																readOnly
+																disabled
+																type="text"
+																value={
+																	weather?.main
+																		? `${weather.main.temp} °F`
+																		: 'W/I'
+																}
+															/>
+														</Form.Group>
+													</Col>
+													<Col xs={6} xl={4}>
+														<Form.Group>
+															<Form.Label>Feels Like</Form.Label>
+															<Form.Control
+																plaintext
+																readOnly
+																disabled
+																type="text"
+																value={
+																	weather?.main
+																		? `${weather.main.feels_like} °F`
+																		: 'W/I'
+																}
+															/>
+														</Form.Group>
+													</Col>
+													<Col xs={6} xl={4}>
+														<Form.Group>
+															<Form.Label>Min</Form.Label>
+															<Form.Control
+																plaintext
+																readOnly
+																disabled
+																type="text"
+																value={
+																	weather?.main
+																		? `${weather.main.temp_min} °F`
+																		: 'W/I'
+																}
+															/>
+														</Form.Group>
+													</Col>
+													<Col xs={6} xl={4}>
+														<Form.Group>
+															<Form.Label>Max</Form.Label>
+															<Form.Control
+																plaintext
+																readOnly
+																disabled
+																type="text"
+																value={
+																	weather?.main
+																		? `${weather.main.temp_max} °F`
+																		: 'W/I'
+																}
+															/>
+														</Form.Group>
+													</Col>
+													<Col xs={6} xl={4}>
+														<Form.Group>
+															<Form.Label>Wind</Form.Label>
+															<Form.Control
+																plaintext
+																readOnly
+																disabled
+																type="text"
+																value={
+																	weather?.wind
+																		? `${(weather.wind.speed / 0.44704).toFixed(
+																				2
+																		  )} mph`
+																		: 'W/I'
+																}
+															/>
+														</Form.Group>
+													</Col>
+													<Col xs={6} xl={4}>
+														<Form.Group>
+															<Form.Label>Humidity</Form.Label>
+															<Form.Control
+																plaintext
+																readOnly
+																disabled
+																type="text"
+																value={
+																	weather?.main
+																		? `${weather.main.humidity}%`
+																		: 'W/I'
+																}
+															/>
+														</Form.Group>
+													</Col>
+												</Form.Row>
+											</Col>
+										</Row>
 									</Card.Body>
 								</Card>
 							</Col>

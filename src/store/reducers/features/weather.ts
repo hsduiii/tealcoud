@@ -48,9 +48,13 @@ export const searchWeatherAction = (location: string): AppThunk => async (
 ) => {
 	dispatch(setLoading(true));
 	dispatch(setLocation(location));
-	const weather: IWeatherModel = await getWeather(location);
-	if (weather) {
-		dispatch(setWeather(weather));
+	try {
+		const weather: IWeatherModel = await getWeather(location);
+		if (weather) {
+			dispatch(setWeather(weather));
+		}
+	} catch (error) {
+		console.log(error);
 	}
 	dispatch(setLoading(false));
 };
