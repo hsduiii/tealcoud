@@ -23,6 +23,7 @@ import {
 	WiThermometer,
 	WiThermometerExterior
 } from 'react-icons/wi';
+import { RiGithubLine } from 'react-icons/ri';
 
 interface IFormData {
 	location: string;
@@ -272,9 +273,11 @@ function App() {
 				fluid
 				className="footer d-flex flex-column justify-content-center align-items-center"
 			>
-				<Row className="w-100 justify-content-cente">
+				<Row className="w-100 justify-content-center mt-2">
 					<Col xs={12} className="text-center">
-						<a href="https://github.com/hsduiii">@hsduiii</a>
+						<a href="https://github.com/hsduiii/tealcoud" target="_blank">
+							{<RiGithubLine />} hsduiii
+						</a>
 					</Col>
 				</Row>
 			</Container>
