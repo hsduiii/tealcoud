@@ -275,7 +275,7 @@ function App() {
 			>
 				<Row className="w-100 justify-content-center mt-2">
 					<Col xs={12} className="text-center">
-						<a href="https://github.com/hsduiii/tealcoud" target="_blank">
+						<a href="https://github.com/hsduiii" target="_blank">
 							{<RiGithubLine />} hsduiii
 						</a>
 					</Col>
