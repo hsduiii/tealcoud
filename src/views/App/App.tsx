@@ -62,7 +62,7 @@ function App() {
 											name="location"
 											type="text"
 											size="lg"
-											placeholder="Example: Mexico City"
+											placeholder="Examples: Monterrey, Monterrey, MX"
 											ref={register({ required: true })}
 										/>
 									</Form.Group>
