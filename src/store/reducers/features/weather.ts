@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import IWeatherModel from '../../../models/weather';
-import { getWeather } from '../../../services/weather';
+import { getWeather, getWeatherUsingCoordinates } from '../../../services/weather';
 import { AppDispatch, AppThunk } from '../../store';
 
 interface WeatherState {
@@ -51,6 +51,22 @@ export const searchWeatherAction = (location: string): AppThunk => async (
 	try {
 		const weather: IWeatherModel = await getWeather(location);
 		if (weather) {
+			dispatch(setWeather(weather));
+		}
+	} catch (error) {
+		console.log(error);
+	}
+	dispatch(setLoading(false));
+};
+
+export const searchWeatherCoordinatesAction = (lat: number, lon: number): AppThunk => async (
+	dispatch: AppDispatch
+) => {
+	dispatch(setLoading(true));
+	try {
+		const weather: IWeatherModel = await getWeatherUsingCoordinates(lat, lon);
+		if (weather && weather.name) {
+			dispatch(setLocation(weather.name));
 			dispatch(setWeather(weather));
 		}
 	} catch (error) {

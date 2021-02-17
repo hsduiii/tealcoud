@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import '../../styles/app.scss';
 import {
 	Button,
@@ -11,7 +11,10 @@ import {
 } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store/store';
-import { searchWeatherAction } from '../../store/reducers/features/weather';
+import {
+	searchWeatherAction,
+	searchWeatherCoordinatesAction
+} from '../../store/reducers/features/weather';
 import { useForm } from 'react-hook-form';
 import getBackground from '../../utils/background';
 import moment from 'moment';
@@ -24,6 +27,7 @@ import {
 	WiThermometerExterior
 } from 'react-icons/wi';
 import { RiGithubLine } from 'react-icons/ri';
+import { getWeather } from '../../services/weather';
 
 interface IFormData {
 	location: string;
@@ -38,6 +42,24 @@ function App() {
 		(state: RootState) => state.app.weather
 	);
 	const dispatch = useDispatch();
+
+	useEffect(() => {
+		if ('geolocation' in navigator) {
+			navigator.geolocation.getCurrentPosition(function (position) {
+				console.log('Latitude is :', position.coords.latitude);
+				console.log('Longitude is :', position.coords.longitude);
+
+				dispatch(
+					searchWeatherCoordinatesAction(
+						position.coords.latitude,
+						position.coords.longitude
+					)
+				);
+			});
+		} else {
+			console.log('Not Available');
+		}
+	}, [dispatch]);
 
 	const onSubmit = ({ location }: IFormData) => {
 		dispatch(searchWeatherAction(location));
