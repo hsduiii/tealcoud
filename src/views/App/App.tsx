@@ -43,7 +43,7 @@ function App() {
 	const dispatch = useDispatch();
 
 	useEffect(() => {
-		if ('geolocation' in navigator) {
+		if (navigator.geolocation) {
 			navigator.geolocation.getCurrentPosition(function (position) {
 				console.log('Latitude is :', position.coords.latitude);
 				console.log('Longitude is :', position.coords.longitude);
