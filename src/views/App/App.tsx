@@ -27,7 +27,6 @@ import {
 	WiThermometerExterior
 } from 'react-icons/wi';
 import { RiGithubLine } from 'react-icons/ri';
-import { getWeather } from '../../services/weather';
 
 interface IFormData {
 	location: string;
