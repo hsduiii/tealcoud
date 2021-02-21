@@ -1,6 +1,9 @@
 {
   "name": "tealcloud",
   "version": "0.1.0",
+  "engines": {
+    "node": "15.x"
+  },
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.5.0",
