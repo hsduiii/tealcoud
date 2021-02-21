@@ -18,6 +18,10 @@ COPY package* ./
 RUN npm install --production && \
 npm install -g serve
 
-EXPOSE 5000
+ENV REACT_APP_WEATHER_API_KEY=${REACT_APP_WEATHER_API_KEY}
+ENV REACT_APP_WEATHER_API_URL=${REACT_APP_WEATHER_API_URL}
+ENV PORT=${PORT}
+
+EXPOSE $PORT
 
 CMD serve -s build
