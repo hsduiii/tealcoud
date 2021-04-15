@@ -49,6 +49,7 @@ export const searchWeatherAction = (location: string): AppThunk => async (
 	dispatch(setLoading(true));
 	dispatch(setLocation(location));
 	try {
+		console.log("Getting Weather...")
 		const weather: IWeatherModel = await getWeather(location);
 		if (weather) {
 			dispatch(setWeather(weather));
@@ -64,6 +65,7 @@ export const searchWeatherCoordinatesAction = (lat: number, lon: number): AppThu
 ) => {
 	dispatch(setLoading(true));
 	try {
+		console.log("Getting Weather...")
 		const weather: IWeatherModel = await getWeatherUsingCoordinates(lat, lon);
 		if (weather && weather.name) {
 			dispatch(setLocation(weather.name));

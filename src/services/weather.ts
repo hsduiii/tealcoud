@@ -1,7 +1,7 @@
 import IWeatherModel from '../models/weather';
 import { weatherAPI } from './axios';
 
-const apiKey = process.env.REACT_APP_WEATHER_API_KEY || '9b7ec3200065415fdb3761f9c7ed5e81';
+const apiKey = process.env.REACT_APP_WEATHER_API_KEY || '5f91c1639e1e488027aacb3a78b18a1f';
 
 export async function getWeather(location: string): Promise<IWeatherModel> {
 	const res = await weatherAPI.get(
